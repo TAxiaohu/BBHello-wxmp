@@ -1,0 +1,66 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>体检报告</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=0.5, maximum-scale=2.0">
+        <meta name="description" content="51二胎">
+        <meta name="keywords" content="51二胎">
+        <meta name="author" content="51二胎">
+        <!-- Site CSS -->
+        <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!--[if lt IE 9]>
+          <script src="js/lib/html5shiv.min.js"></script>
+          <script src="js/lib/respond.min.js"></script>
+        <![endif]-->
+        <!-- <link rel="canonical" href="http://www.bootcss.com/"> -->
+        <link rel="stylesheet" href="../css/bootstrap.min.css">
+        <link rel="stylesheet" href="../css/page.css">
+        <link rel="stylesheet" href="../css/report.css">
+    </head>
+    <body style="background-color: #fff">
+        <div id="page-report">
+            <div class="container add-pic" align="center">
+                <img class="add-btn" src="../img/icon-report-add.png" width="60px">
+                <div class="rpt-group">
+                    <a href="male.html" class="male" style="border-right: none;"><img src="../img/pic-male.png">爸爸的体检项目</a>
+                    <a href="female.html" class="female"><img src="../img/pic-female.png">妈妈的体检项目</a>
+                </div>
+                <img style="margin-top: -45px" src="../img/pic-report-border.png" width="100%;">
+                <input name="file" type="file" id="upload-input" value="" onchange="fillImage()">
+            </div>
+            <div id="pic-list">
+                <div class="pic-block col-xs-2" id="imggrp-1">
+                    <img class="img-close" src="../img/icon-report-close.png" style="display: none;">
+                </div>
+                <div class="pic-block col-xs-2" id="imggrp-2">
+                    <img class="img-close" src="../img/icon-report-close.png" style="display: none;">
+                </div>
+                <div class="pic-block col-xs-2" id="imggrp-3">
+                    <img class="img-close" src="../img/icon-report-close.png" style="display: none;">
+                </div>
+                <div class="pic-block col-xs-2" id="imggrp-4">
+                    <img class="img-close" src="../img/icon-report-close.png" style="display: none;">
+                </div>
+                <div class="pic-block col-xs-2" id="imggrp-5">
+                    <img class="img-close" src="../img/icon-report-close.png" style="display: none;">
+                </div>
+                <div class="pic-block col-xs-2" id="imggrp-6">
+                    <img class="img-close" src="../img/icon-report-close.png" style="display: none;">
+                </div>
+            </div>
+            <footer>
+                <div class="footer-upl-report" align="center"><a class="btn btn-primary" role="button" id="upl-report">上传体检报告</a></div>
+            </footer>
+        </div>
+        <script src="../js/lib/jquery.min.js"></script>
+        <script type="text/javascript" src="../js/lib/handlebars.js"></script>
+        <script type="text/javascript" src="../js/service.js"></script>
+        <script type="text/javascript" src="../js/data.js"></script>
+        <script type="text/javascript" src="../js/main.js"></script>
+        <script type="text/javascript" src="../js/lib/bootstrap.min.js"></script>
+        <script src="../js/lib/ajaxfileupload.js"></script>
+        <script type="text/javascript" src="../js/config.js"></script>
+        <script type="text/javascript" src="../js/report.js"></script>
+    </body>
+</html>

@@ -1,0 +1,9 @@
+.package-block ul {
+	border-top: dashed #e6e6e6 1px;
+    border-bottom: dashed #e6e6e6 1px;
+    padding: 10px 0;
+}
+.package-block .package-footer .order {
+	height: 50px;
+	line-height: 50px;
+}

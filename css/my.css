@@ -1,0 +1,41 @@
+.header{
+	display: block;
+	height: 45px;
+	line-height: 45px;
+	padding-left: 50px;
+	background-size: 20px;
+	background-repeat: no-repeat;
+	background-position: 20px center;
+	border-bottom: #e6e6e6 solid 1px;
+	border-top: #e6e6e6 solid 1px;
+}
+#order-desc span{
+	display: inline-block;
+	width: 49%;
+}
+.header-order {
+	background-image: url("../img/icon-my-order.png");
+	margin-top: 10px;
+}
+.header-ch-psw {
+	background-image: url("../img/icon-my-chpsw.png");
+}
+.order-header,
+.order-step {
+	height: 40px;
+    line-height: 40px;
+    margin-left: 50px;
+    border-bottom: dashed #e6e6e6 1px;
+}
+#order-desc {
+	background-color: #f0f0f0;
+	margin-right: 10px;
+	padding-bottom: 10px;
+}
+.step-status .btn {
+	height: 30px;
+	line-height: 28px;
+	font-size: 100%;
+	width: 75px;
+	padding: 0;
+}

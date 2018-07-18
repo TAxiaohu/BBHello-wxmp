@@ -1,0 +1,23 @@
+.pay-info{
+	height: 100px;
+	border-bottom: #e6e6e6 solid 1px;
+	margin-bottom: 0;
+}
+.pay-info .col-xs-3{
+	margin-top: 30px;
+}
+.pay-info .col-xs-3 img {
+	width: 100%;
+}
+.pay-info .col-xs-9{
+	margin-top: 10px;
+}
+.right {
+	border-left: dotted 1px #e6e6e6;
+	padding-top: 15px;
+}
+.right ul>li{
+	color: #acacac;
+	height: 30px;
+	line-height: 30px;
+}

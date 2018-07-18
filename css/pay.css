@@ -1,0 +1,43 @@
+.order-header {
+	height: 50px;
+	margin-bottom: 0;
+}
+.order-header .col-xs-8 {
+	height: 50px;
+	line-height: 50px;
+}
+.order-header .order-price {
+	height: 50px;
+	line-height: 50px;
+	text-align: right;
+}
+.order-header .row {
+	background-image: url("../img/border-wave.png");
+}
+.form-horizontal .row{
+	height: 45px;
+	line-height: 45px;
+	border-bottom: #e6e6e6 solid 1px;
+}
+.form-horizontal .row div{
+	line-height: 43px;
+}
+#payment {
+	background-image: url(../img/icon-pay-wechat.png);
+	background-repeat: no-repeat;
+	background-size: 30px;
+	background-position: 45% center;
+}
+.form-horizontal p,
+.form-horizontal .row .like-label{
+	color: #b9b9b9;
+}
+.form-horizontal p {
+	margin-top: 15px;
+}
+.form-horizontal .row .like-input{
+	text-align: right;
+}
+.btn-pay{
+	margin-top: 40px;
+}

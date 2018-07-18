@@ -1,0 +1,16 @@
+h4 {
+	margin-top: 15px;
+}
+ol{
+	margin-bottom: 30px;
+}
+ol li{
+	list-style-position: outside;
+    padding-left: 15px;
+    margin-left: 15px;
+    color: #9b9b9b;
+    margin-bottom: 5px;
+}
+.btn{
+	margin: 20px 0;
+}

@@ -1,0 +1,54 @@
+.main-pic {
+    height: 200px;
+    overflow: hidden;
+}
+.main-pic img{
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    transform: translateX(-50%);
+    -ms-transform: translateX(-50%);
+    -moz-transform: translateX(-50%);
+    -webkit-transform: translateX(-50%);
+    -o-transform: translateX(-50%);
+}
+.mask {
+	background: -webkit-linear-gradient(rgba(255,255,255,0),rgba(0,0,0,0.5));
+	background: -moz-linear-gradient(rgba(255,255,255,0),rgba(0,0,0,0.5));
+	background: -o-linear-gradient(rgba(255,255,255,0),rgba(0,0,0,0.5));
+	background: -ms-linear-gradient(rgba(255,255,255,0),rgba(0,0,0,0.5));
+	border-color: rgba(255,255,255,0);
+	height: 200px;
+    position: absolute;
+    top: 0;
+    z-index: 99;
+    width: 100%;
+    color: #fff;
+    padding-left: 15px;
+}
+.package-desc>li{
+	line-height: 35px;
+	border-bottom: dashed 1px #e6e6e6;
+}
+.package-desc>li:last-child {
+	border-bottom: none;
+}
+#packagedetail-footer .btn{
+	height: 50px;
+    line-height: 38px;
+    width: 100%;
+    font-size: 140%
+}
+.review-wrapper .avatar{
+    width: 40px;
+    float: left;
+    margin-right: 15px;
+}
+.review-wrapper .user-name {
+    height: 40px;
+    line-height: 40px;
+}
+.review-wrapper .review-text {
+    padding-top: 5px;
+    line-height: 25px;
+}

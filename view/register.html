@@ -1,0 +1,95 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>注册</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=0.5, maximum-scale=2.0">
+        <meta name="description" content="51二胎">
+        <meta name="keywords" content="51二胎">
+        <meta name="author" content="51二胎">
+        <!-- Site CSS -->
+        <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!--[if lt IE 9]>
+          <script src="js/lib/html5shiv.min.js"></script>
+          <script src="js/lib/respond.min.js"></script>
+        <![endif]-->
+        <!-- <link rel="canonical" href="http://www.bootcss.com/"> -->
+        <link rel="stylesheet" href="../css/bootstrap.min.css">
+        <link rel="stylesheet" href="../css/page.css">
+        <link rel="stylesheet" href="../css/register.css">
+    </head>
+    <body style="background-color: #fff">
+        <div id="page-register">
+            <div align="center">
+                <img class="logo" src="../img/logo.png" width="100px">
+            </div>
+            <section class="container">
+                <form class="form-login">
+                    <div class="input-phone">
+                        <div class="icon-phone"></div>
+                        <input type="tel" id="tel" placeholder="手机号码">
+                    </div>
+                    <div class='warn input-tel'>请输入手机号码</div>
+                    <div class="input-idf-code">
+                        <div class="icon-idf-code"></div>
+                        <input type="num" id="identify-code" placeholder="验证码" style="width:50%">
+                        <span style="float: right;"><a class="color-pink" role="button" id="send-identify-code" onclick="sendIdfCode()">发送验证码</a></span>
+                    </div>
+                    <div class='warn input-idf-code'>请输入验证码</div>
+                    <div class="input-psw">
+                        <div class="icon-psw"></div>
+                        <input type="password" id="psw" placeholder="密码由6-18位数字和字母组成">
+                    </div>
+                    <div class='warn input-password'>密码不符</div>
+                    <div class="btn-register">
+                        <a class="btn btn-primary" role="button" id="register" style="display: block;">立即注册</a>
+                    </div>
+                </form>
+            </section>
+        </div>
+        <script src="../js/lib/jquery.min.js"></script>
+        <script type="text/javascript" src="../js/lib/handlebars.js"></script>
+        <script type="text/javascript" src="../js/service.js"></script>
+        <script type="text/javascript" src="../js/data.js"></script>
+        <script type="text/javascript" src="../js/main.js"></script>
+        <script type="text/javascript" src="../js/lib/bootstrap.min.js"></script>
+        <script type="text/javascript">
+            var telData = {};
+            var c=60;
+            var t;
+            var data = {};
+            data.openId = urlUtil.getQueryString("openId");
+            data.accessToken = urlUtil.getQueryString("accessToken");
+            $("#register").click(function(){
+                if (mobileNumTest($("#tel").val())) {
+                    if ($("#psw").val()) {
+                        if ($("#identify-code").val()) {
+                            data.level = 0;
+                            data.cellphone = $("#tel").val();
+                            data.password = $("#psw").val();
+                            data.phoneCode = $("#identify-code").val();
+                            registerApi(data,function(res){
+                                if (res.code === '200' && res.data) {
+                                    if (urlUtil.getQueryString("link")){
+                                        goForPage();
+                                    } else {
+                                        window.location.href="my.html";
+                                    }
+                                } else if (res.code === "1200") {
+                                    $(".input-idf-code").html("验证码错误");
+                                    $(".input-idf-code").css("visibility","visible");
+                                }
+                            });
+                        } else {
+                            $(".input-idf-code").css("visibility","visible");
+                        }
+                    } else {
+                        $(".input-password").css("visibility","visible");
+                    }
+                } else {
+                    $(".input-tel").css("visibility","visible");
+                }
+            });
+        </script>
+    </body>
+</html>

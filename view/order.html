@@ -1,0 +1,80 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>预约</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=0.5, maximum-scale=2.0">
+        <meta name="description" content="51二胎">
+        <meta name="keywords" content="51二胎">
+        <meta name="author" content="51二胎">
+        <!-- Site CSS -->
+        <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!--[if lt IE 9]>
+          <script src="js/lib/html5shiv.min.js"></script>
+          <script src="js/lib/respond.min.js"></script>
+        <![endif]-->
+        <!-- <link rel="canonical" href="http://www.bootcss.com/"> -->
+        <link rel="stylesheet" href="../css/bootstrap.min.css">
+        <link rel="stylesheet" href="../css/page.css">
+        <link rel="stylesheet" href="../css/order.css">
+    </head>
+    <body style="background-color: #fff">
+        <div id="page-order">
+            <section class="order-header container">
+                <div class="row"></div>
+            </section>
+            <section class="container">
+                <form class="form-horizontal">
+                    <input type="text" class="form-control" id="name" placeholder="姓名">
+                    <div class="warn input-name">请输入姓名</div>
+                    <div class="">
+                        <label class="radio-inline"><input type="radio" name="sex" id="female" value="2">女</label>
+                        <label class="radio-inline"><input type="radio" name="sex" id="male" value="1">男</label>
+                    </div>
+                    <div class="warn input-sex">请选择性别</div>
+                    <select id='year' class='year form-control' name='year' style="width:48%;float: left;"></select>
+                    <select id='month' class='month form-control' name='month' style="width:48%;margin-left: 4%;"></select>
+                    <div class="warn input-age">年龄需要在16~60岁之间</div>
+                    <input type="tel" class="form-control " id="tel" placeholder="手机号码"><div class=" warn input-tel">请输入手机号码</div>
+                    <div id="address">
+                        <select id="province" class="province form-control" name="province" style="width:48%;float: left;"></select>
+                        <select id='city' class='city form-control' name='city' style='width:48%;margin-left: 4%;'></select>
+                        <div class="warn input-address">请选择地区</div>
+                        <div class="warn success"></div>
+                    </div>
+                    <div class="btn-order">
+                        <a class="btn btn-primary" role="button" id="order-next">提交预约</a>
+                    </div>
+                </form>
+            </section>
+        </div>
+        <!-- 预约成功modal框 -->
+        <a href="#modal-success" class="btn btn-primary" role="button" id="success" data-toggle="modal" data-target="#modal-success" style="display: none;">成功</a>
+        <div class='modal fade' id='modal-success' align='center'>
+            <div class='modal-box' style='width: 75%; height: 170px'>
+                <div class="modal-head">
+                    <h4>预约成功</h4>
+                    <p class="color-gray">客服将尽快联系您，请保持电话畅通</p>
+                </div>
+                <a href="my.html" class="btn btn-primary" role="button">确定</a>
+            </div>
+        </div>
+        <!-- 头部html -->
+        <script id="package-info" type="text/x-handlebars-template">
+            <div class="col-xs-8">预约套餐：<span class="order-name">{{name}}</span></div>
+            <div class="order-price col-xs-4" style="padding-left: 0"><span class="color-pink" style="font-size: 150%">{{price}}</span>元</div>
+        </script>
+
+        <script src="../js/lib/jquery.min.js"></script>
+        <script src="../js/lib/jquery.cityselect.js"></script>
+        <script type="text/javascript" src="../js/lib/bootstrap-datetimepicker.min.js"></script>
+        <script type="text/javascript" src="../js/lib/bootstrap-datetimepicker.zh-CN.js"></script>
+        <script type="text/javascript" src="../js/lib/handlebars.js"></script>
+        <script type="text/javascript" src="../js/service.js"></script>
+        <script type="text/javascript" src="../js/data.js"></script>
+        <script type="text/javascript" src="../js/main.js"></script>
+        <script type="text/javascript" src="../js/lib/bootstrap.min.js"></script>
+        <script type="text/javascript" src="../js/service.js"></script>
+        <script type="text/javascript" src="../js/order.js"></script>
+    </body>
+</html>

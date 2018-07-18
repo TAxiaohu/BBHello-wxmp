@@ -1,0 +1,145 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>套餐</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=0.5, maximum-scale=2.0">
+        <meta name="description" content="51二胎套餐">
+        <meta name="keywords" content="51二胎套餐">
+        <meta name="author" content="51二胎套餐">
+        <!-- Site CSS -->
+        <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!--[if lt IE 9]>
+          <script src="js/lib/html5shiv.min.js"></script>
+          <script src="js/lib/respond.min.js"></script>
+        <![endif]-->
+        <!-- <link rel="canonical" href="http://www.bootcss.com/"> -->
+        <link rel="stylesheet" href="../css/bootstrap.min.css">
+        <link rel="stylesheet" href="../css/page.css">
+        <link rel="stylesheet" href="../css/packagedetail.css">
+    </head>
+    <body>
+        <div id="page-packagedetail">
+        </div>
+        <script id="detail" type="text/x-handlebars-template">
+            <div class="main-pic">
+                <img height="100%" src={{mainimage}}>
+                <div class="mask">
+                    <div style="position: absolute;bottom: 10px;">
+                        <h2 style="font-size: 160%;">{{name}}</h2>
+                        <div>已有<span class="order-amount">0</span>人预订</div>
+                    </div>
+                </div>
+            </div>
+            <section>
+                <ul class="list-unstyled package-desc container">
+                    {{#service}}
+                    <li class={{className}}>
+                        <div class="detail">{{desc}}</div>
+                    </li>
+                    {{/service}}
+                </ul>
+            </section>
+            <section class="package-content">
+                <div class="container">
+                    <h3>套餐内容</h3>
+                    <ol style="padding-left: 0px;list-style-position:inside;">
+                        {{#desc}}
+                        <li>{{descrow}}</li>
+                        {{/desc}}
+                    </ol>
+                </div>
+            </section>
+            <!-- <section class="review">
+                <div class="container">
+                    <h3>评论</h3>
+                    <div id="review-wrap"></div>
+                </div>
+            </section> -->
+            <footer id="packagedetail-footer">
+                <div class="col-xs-8 price color-pink" align="center">套餐价<span class="big-font">{{price}}</span>元</div>
+                <div class="col-xs-4" align="center" style="padding: 0">
+                    <a class="btn btn-primary" role="button" id="order-now">立即预约</a>
+                </div>
+            </footer>
+        </script>
+        <!-- <script id="review" type="text/x-handlebars-template">
+            <ul class="review-wrapper list-unstyled">
+                {{#items}}
+                <li>
+                    <div style="padding: 0">
+                        {{#if photo}}
+                        <img class="avatar img-circle" src={{this}} width="100%">
+                        {{else}}
+                            <img class="avatar img-circle" src="../img/avatar.png" width="100%">
+                        {{/if}}
+                        <div class="user-name text-nowrap">{{userName}}</div>
+                    </div>
+                    <div>
+                        <div class="review-text">{{content}}</div>
+                        <div class="review-time color-gray small-font">{{createTimeStr}}</div>
+                    </div>
+                </li>
+                {{/items}}
+            </ul>
+        </script> -->
+        <script src="../js/lib/jquery.min.js"></script>
+        <script type="text/javascript" src="../js/lib/handlebars.js"></script>
+        <script type="text/javascript" src="../js/service.js"></script>
+        <script type="text/javascript" src="../js/data.js"></script>
+        <script type="text/javascript" src="../js/main.js"></script>
+        <script type="text/javascript" src="../js/lib/bootstrap.min.js"></script>
+        <script type="text/javascript" src="../js/service.js"></script>
+        <script type="text/javascript">
+            var data = {};
+            var id = urlUtil.getQueryString("itemId");
+            data.callbackURI = urlConfig + "/wxweb/view/login.html?link=packagedetail&itemId=" + id;
+            // page index seller block
+            for (i=0;i<seller.sellers.length;i++) {
+                if (id == seller.sellers[i].id) {
+                    context = seller.sellers[i];
+                }
+            }
+            var tpl =  $("#detail").html();
+            var tplTemplate = Handlebars.compile(tpl);
+            // var tplContext = seller;
+            var tplHtml = tplTemplate(context);
+            $("#page-packagedetail").html(tplHtml);
+            // 填充预约总数
+            sellerAmountApi(id,function(res) {
+                if (res.code === '200' && res.data) {
+                    $(".order-amount").html(res.data);
+                } else {
+                    $(".order-amount").html("0");
+                }
+            });
+            // 评论
+            // if (id) {
+            //     reviewApi(id,function(res) {
+            //         if (res.code === '200' && res.data) {
+            //             $(".review h3").html("评论("+res.data.items.length+")");
+            //             reviewData = res.data;
+            //             var reviews = $("#review").html();
+            //             var reviewTemplate = Handlebars.compile(reviews);
+            //             var reviewHtml = reviewTemplate(reviewData);
+            //             $("#review-wrap").html(reviewHtml);
+            //         }
+            //     });
+            // }
+            // 预约
+            $("#order-now").click(function(){
+                if (accountInfo.cellphone){
+                    window.location.href="order.html?id=" + id;
+                } else {
+                    weChatLogIn(data,function(res){
+                        if(res.code === "200" && res.data){
+                            window.location.href = res.data;
+                        } else if (res.code == "500") {
+                            alert(res.message);
+                        }
+                    });
+                }
+            });
+        </script>
+    </body>
+</html>

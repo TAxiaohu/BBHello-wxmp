@@ -1,0 +1,25 @@
+.nav-tabs>li{
+	width: 33%;
+}
+.nav>li>a{
+	padding: 0;
+}
+.nav-tabs>li>a {
+	font-size: 120%;
+	height: 50px;
+	line-height: 50px;
+}
+.news-block .news-info h4 {
+	font-size: 120%;
+	line-height: 22px;
+}
+.news-block .news-img {
+	padding-left: 0;
+}
+.news-block .news-img img {
+	margin-top: 10px;
+}
+.news-block {
+	border-bottom: #e6e6e6 solid 1px;
+	margin: 0;
+}

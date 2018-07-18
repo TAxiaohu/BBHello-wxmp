@@ -1,0 +1,64 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>支付体检费用</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=0.5, maximum-scale=2.0">
+        <meta name="description" content="51二胎">
+        <meta name="keywords" content="51二胎">
+        <meta name="author" content="51二胎">
+        <!-- Site CSS -->
+        <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!--[if lt IE 9]>
+          <script src="js/lib/html5shiv.min.js"></script>
+          <script src="js/lib/respond.min.js"></script>
+        <![endif]-->
+        <!-- <link rel="canonical" href="http://www.bootcss.com/"> -->
+        <link rel="stylesheet" href="../css/bootstrap.min.css">
+        <link rel="stylesheet" href="../css/page.css">
+        <link rel="stylesheet" href="../css/pay.css">
+    </head>
+    <body>
+        <div id="page-pay">
+            <section class="order-header">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-xs-8" id="package-name">泰国贴心体检旅游套餐</div>
+                        <div class="order-price col-xs-4" style="padding-left: 0"><span class="color-pink" style="font-size: 150%" id="package-price">9800</span>元</div>
+                    </div>
+                </div>
+            </section>
+            <div class="container">
+                <form class="form-horizontal">
+                </form>
+            </div>
+        </div>
+        <script id="order-info" type="text/x-handlebars-template">
+            <div class="row">
+                <div class="like-label col-xs-6">手机号码</div>
+                <div class="like-input col-xs-6">{{cellphone}}</div>
+            </div>
+            <div class="row">
+                <div class="like-label col-xs-6">支付金额</div>
+                <div class="like-input col-xs-6">￥{{goodsPrice}}元</div>
+            </div>
+            <div class="row">
+                <div class="like-label col-xs-6">支付方式</div>
+                <div class="like-input col-xs-6" id="payment">微信支付</div>
+            </div>
+            <p class="color-gray">体检金额包含在套餐总额中，支付全款时会扣除体检套餐费用。</p>
+            <div class="btn-pay">
+                <a class="btn btn-primary" role="button" id="pay-now" onclick="payWeChat()">立即支付</a>
+            </div>
+        </script>
+        <script src="../js/lib/jquery.min.js"></script>
+        <script type="text/javascript" src="../js/lib/handlebars.js"></script>
+        <script type="text/javascript" src="../js/lib/wechat.js"></script>
+        <script type="text/javascript" src="../js/service.js"></script>
+        <script type="text/javascript" src="../js/data.js"></script>
+        <script type="text/javascript" src="../js/main.js"></script>
+        <script type="text/javascript" src="../js/lib/bootstrap.min.js"></script>
+        <script type="text/javascript" src="../js/config.js"></script>
+        <script type="text/javascript" src="../js/pay.js"></script>
+    </body>
+</html>

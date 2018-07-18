@@ -1,0 +1,14 @@
+.public-date {
+	margin-top: -5px;
+	margin-bottom: 10px;
+}
+#article-box {
+	margin-top: 20px;
+	padding-bottom: 10px;
+    border-bottom: #e6e6e6 solid 1px;
+    margin-bottom: 20px;
+}
+ol>li{
+	line-height: 40px;
+    border-bottom: #e6e6e6 solid 1px
+}

@@ -1,0 +1,56 @@
+.logo {
+	margin-top: 15px;
+	margin-bottom: 30px;
+}
+.form-login{
+	margin-top: 20px;
+	padding: 0 10px;
+}
+.form-login input {
+	border:none;
+	height: 30px;
+	line-height: 30px;
+	padding-left: 5px;
+	width: 80%;
+}
+.icon-phone {
+	background-image: url(../img/icon-login-account.png);
+}
+.icon-psw {
+	background-image: url(../img/icon-login-psw.png);
+}
+.icon-idf-code {
+	background-image: url(../img/icon-register-idfcode.png);
+}
+.icon-idf-code,
+.icon-phone,
+.icon-psw{
+	background-size: 20px;
+	background-repeat: no-repeat;
+	background-position: center;
+	width: 30px;
+	height: 30px;
+	float: left;
+}
+.input-idf-code,
+.input-phone,
+.input-psw{
+	border-bottom: #e6e6e6 solid 1px;
+	padding-bottom: 5px;
+}
+.btn-login {
+	padding: 0 10px;
+}
+#send-idf-code {
+	display: inline-block;
+    height: 30px;
+    line-height: 30px;
+    float: right;
+}
+
+.login-link{
+	margin-top: 15px;
+}
+.login-link .col-xs-6{
+	padding: 5px 10px 15px 10px;
+}

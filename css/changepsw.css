@@ -1,0 +1,11 @@
+.form-horizontal{
+	margin-top: 30px;
+	padding: 0 25px;
+}
+.form-horizontal .form-control {
+	width: 100%;
+	margin-bottom: 0;
+}
+.form-horizontal .btn-change{
+	margin-top: 80px;
+}

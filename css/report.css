@@ -1,0 +1,58 @@
+.add-pic{
+	padding: 30px 25px 10px 25px;
+}
+#upload-input,
+.add-pic .add-btn {
+	position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 160px;
+}
+.rpt-group {
+	position: relative;
+    top: 278px;
+}
+.rpt-group a {
+	width: 50%;
+	border:#e6e6e6 solid 1px;
+	float: left;
+	padding: 10px 0 10px 10px;
+	background-color: #fff;
+}
+.rpt-group a img {
+	height: 20px;
+	margin-right: 5px;
+}
+.rpt-group .male{
+	color: #609ee6;
+}
+.rpt-group .female{
+	color: #ec7688;
+}
+#pic-list {
+	padding: 0 25px;
+}
+.pic-block{
+	padding: 0;
+	height: 60px;
+	border:#e6e6e6 solid 1px;
+	display: inline-block;
+	background-color: #fafafa;
+	background-size: 100%;
+	background-repeat: no-repeat;
+}
+footer .btn {
+	height: 50px;
+	background-color:#ccc; 
+	border-color: #ccc;
+}
+footer .btn-active {
+	background-color: #ec7688;
+	border-color: #ec7688;
+}
+#upload-input{
+	height: 60px;
+	width: 60px;
+	filter:alpha(opacity:0);
+	opacity: 0;
+}

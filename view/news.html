@@ -1,0 +1,104 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>51二胎</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=0.5, maximum-scale=2.0">
+        <meta name="description" content="51二胎">
+        <meta name="keywords" content="51二胎">
+        <meta name="author" content="51二胎">
+        <!-- Site CSS -->
+        <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!--[if lt IE 9]>
+          <script src="js/lib/html5shiv.min.js"></script>
+          <script src="js/lib/respond.min.js"></script>
+        <![endif]-->
+        <!-- <link rel="canonical" href="http://www.bootcss.com/"> -->
+        <link rel="stylesheet" href="../css/bootstrap.min.css">
+        <link rel="stylesheet" href="../css/page.css">
+        <link rel="stylesheet" href="../css/news.css">
+    </head>
+    <body style="background-color: #fff">
+        <div id="page-news">
+            <header>
+                <ul class="nav nav-tabs" role="tablist">
+                    <li role="presentation" class="active"><a href="#hot" aria-controls="hot" role="tab" data-toggle="tab" onclick="hotEvt()">热门资讯</a></li>
+                    <li role="presentation"><a href="#news" aria-controls="news" role="tab" data-toggle="tab" onclick="newsEvt()">新闻报道</a></li>
+                    <li role="presentation"><a href="#tech" aria-controls="tech" role="tab" data-toggle="tab" onclick="techEvt()">试管婴儿技术</a></li>
+                </ul>
+            </header>
+            <div class="tab-content">
+                <div role="tabpanel" class="tab-pane fade in active container" id="hot">
+                </div>
+                <div role="tabpanel" class="tab-pane fade container" id="news">
+                </div>
+                <div role="tabpanel" class="tab-pane fade container" id="tech">
+                </div>
+            </div>
+            <footer id="footer-news">
+                <a href="news.html" class="col-xs-6 footer-news footer-news-active" align="center">资讯</a>
+                <a href="case.html" class="col-xs-6 footer-case" align="center">案例</a>
+            </footer>
+        </div>
+        <script id="pageAriticle" type="text/x-handlebars-template">
+            {{#items}}
+            <div class="news-block row">
+                <div class="col-xs-8 news-info" style="padding-left: 0">
+                    <h4><a class="go-detail multiline-nowrap" f-target="newsdetail.html" id={{contentId}}>{{title}}</a></h4>
+                    <p class="color-gray small-font">{{publicTime}}</p>
+                </div>
+                <div class="news-img col-xs-4" style="padding-right: 0">
+                    <img src={{imageUrl}} width="100%">
+                </div>
+            </div>
+            {{/items}}
+        </script>
+        <script src="../js/lib/jquery.min.js"></script>
+        <script type="text/javascript" src="../js/lib/handlebars.js"></script>
+        <script type="text/javascript" src="../js/service.js"></script>
+        <script type="text/javascript" src="../js/data.js"></script>
+        <script type="text/javascript" src="../js/main.js"></script>
+        <script type="text/javascript" src="../js/lib/bootstrap.min.js"></script>
+        <script type="text/javascript" src="../js/service.js"></script>
+        <script type="text/javascript">
+            $(function(){
+                // 填充热门资讯模板
+                hotEvt();
+                goDetail();
+            });
+            function hotEvt() {
+                hotArticleApi(function(res) {
+                    if (res.code === '200' && res.data) {
+                        var pageHotAriticle = $("#pageAriticle").html();
+                        var hTemplate = Handlebars.compile(pageHotAriticle);
+                        var hHtml = hTemplate(res.data);
+                        $("#hot").html(hHtml);
+                        goDetail();
+                    }
+                });
+            }
+            function newsEvt(){
+                newsArticleApi(function(res) {
+                    if (res.code === '200' && res.data) {
+                        var pageNewsAriticle = $("#pageAriticle").html();
+                        var nTemplate = Handlebars.compile(pageNewsAriticle);
+                        var nHtml = nTemplate(res.data);
+                        $("#news").html(nHtml);
+                        goDetail();
+                    }
+                });
+            }
+            function techEvt(){
+                techArticleApi(function(res) {
+                    if (res.code === '200' && res.data) {
+                        var pageTechAriticle = $("#pageAriticle").html();
+                        var tTemplate = Handlebars.compile(pageTechAriticle);
+                        var tHtml = tTemplate(res.data);
+                        $("#tech").html(tHtml);
+                        goDetail();
+                    }
+                });
+            }
+        </script>
+    </body>
+</html>

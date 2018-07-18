@@ -1,0 +1,88 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>热门资讯</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=0.5, maximum-scale=2.0">
+        <meta name="description" content="51二胎">
+        <meta name="keywords" content="51二胎">
+        <meta name="author" content="51二胎">
+        <!-- Site CSS -->
+        <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!--[if lt IE 9]>
+          <script src="js/lib/html5shiv.min.js"></script>
+          <script src="js/lib/respond.min.js"></script>
+        <![endif]-->
+        <!-- <link rel="canonical" href="http://www.bootcss.com/"> -->
+        <link rel="stylesheet" href="../css/bootstrap.min.css">
+        <link rel="stylesheet" href="../css/page.css">
+        <link rel="stylesheet" href="../css/newsdetail.css">
+    </head>
+    <body style="background-color: #fff">
+        <div class="context">
+        </div>
+        <div class="related-atc"></div>
+        <script id="detail" type="text/x-handlebars-template">
+            <div class="container">
+                <h3>{{title}}</h3>
+                <div class="color-gray public-date">
+                    <span class="publish-time small-font">{{publicTime}}</span>
+                </div>
+                <img src={{imageUrl}} alt="新闻" width="100%">
+                <article id="article-box"></article>
+            </div>
+        </script>
+        <script id="thr-detail" type="text/x-handlebars-template">
+            <div class="container">
+                <p class="color-gray">相关文章</p>
+                <ol>
+                {{#data}}
+                    <li><a class="go-detail text-nowrap" f-target="newsdetail.html" id={{contentId}}>{{title}}</a></li>
+                {{/data}}
+                </ol>
+            </div>
+        </script>
+        <script src="../js/lib/jquery.min.js"></script>
+        <script type="text/javascript" src="../js/lib/handlebars.js"></script>
+        <script type="text/javascript" src="../js/lib/wechat.js"></script>
+        <script type="text/javascript" src="../js/service.js"></script>
+        <script type="text/javascript" src="../js/data.js"></script>
+        <script type="text/javascript" src="../js/main.js"></script>
+        <script type="text/javascript" src="../js/lib/bootstrap.min.js"></script>
+        <script type="text/javascript" src="../js/service.js"></script>
+        <script type="text/javascript">
+            var wcShareData = {};
+            wcShareData.url = window.location.href;
+            // 填充文章模板
+            goDetail();
+            var id = urlUtil.getQueryString("itemId");
+            if (id) {
+                articleDetailApi(id,function(res) {
+                    if (res.code === '200' && res.data) {
+                        var detail = $("#detail").html();
+                        var template = Handlebars.compile(detail);
+                        var html = template(res.data);
+                        $(".context").html(html);
+                        $("#article-box").html(res.data.body);
+                        document.title = res.data.title;
+                        // wcShareData.title = res.data.title;
+                        // wcShareData.imgUrl = res.data.imageUrl;
+                        // shareWCMoment(wcShareData);
+                        goDetail();
+                        // 获取随机3个文章
+                        randomArticleApi(res.data.contentType,res.data.contentId,function(res) {
+                            if (res.code === '200' && res.data) {
+                                var rdmDetail = $("#thr-detail").html();
+                                var rTemplate = Handlebars.compile(rdmDetail);
+                                var rHtml = rTemplate(res);
+                                $(".related-atc").html(rHtml);
+                                goDetail();
+                            }
+                        });
+                    }
+                });
+            }
+            
+        </script>
+    </body>
+</html>

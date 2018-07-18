@@ -1,0 +1,38 @@
+.order-detail {
+	/*padding: 15px;*/
+	border-top: #e6e6e6 solid 1px;
+	border-bottom: #e6e6e6 solid 1px;
+	margin-top: 10px;
+}
+
+.order-header,
+.order-info {
+	border-bottom: dotted #e6e6e6 1px;
+	height: 45px;
+	line-height: 45px;
+	display: block;
+}
+.order-info .color-gray {
+	padding-left: 15px;
+}
+.order-info .color-pink {
+	float: right;
+    padding-right: 15px;
+}
+.order-step span,
+.order-header span{
+	display: inline-block;
+	/*width: 49%;*/
+	width: 49%;
+}
+.order-step {
+	height: 45px;
+	line-height: 45px;
+}
+.step-status .btn {
+	height: 30px;
+	line-height: 28px;
+	font-size: 100%;
+	width: 85px;
+	padding: 0 15px;
+}
